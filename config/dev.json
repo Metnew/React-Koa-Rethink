@@ -1,0 +1,15 @@
+{
+    "server": {
+        "port": 3000
+    },
+
+    "rethinkdb": {
+        "connect": {
+            "host": "localhost",
+            "port": 28015,
+            "db": "sherlock"
+        },
+        "tables":["users"]
+    }
+
+}
