@@ -1,6 +1,6 @@
 {
     "server": {
-        "port": 3000
+        "port": 8008
     },
 
     "rethinkdb": {
@@ -10,6 +10,14 @@
             "db": "sherlock"
         },
         "tables":["users"]
-    }
+    },
 
+    "public": {
+        "static": "localhost:8000",
+        "api": "/public"
+    },
+
+    "jwt": {
+        "secret": "rozovieponi"
+    }
 }

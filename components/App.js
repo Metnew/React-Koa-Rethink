@@ -7,12 +7,12 @@ import convert from 'koa-convert';
 import compress from 'koa-compress';
 import validate from 'koa-validate';
 
-var AppComponent = new Koa();
-AppComponent.use(convert(helmet()))
-AppComponent.use(convert(body()))
-AppComponent.use(convert(morgan('dev')))
-AppComponent.use(convert(validate()))
-AppComponent.use(serve("static", "../public"))
+var App = new Koa();
+App.use(convert(helmet()))
+App.use(convert(body()))
+App.use(convert(morgan('dev')))
+App.use(convert(validate()))
+App.use(serve("static", "http://localhost:8000/"))
 
 let compressFunc = compress({
     filter: function(content_type) {
@@ -21,6 +21,6 @@ let compressFunc = compress({
     threshold: 2048,
     flush: require('zlib').Z_SYNC_FLUSH
 })
-AppComponent.use(convert(compressFunc))
+App.use(convert(compressFunc))
 
-export default AppComponent;
+export default App;

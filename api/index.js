@@ -1,6 +1,5 @@
 import Router from 'koa-router';
 import convert from 'koa-convert';
-// import compose from 'koa-com'
 import users from './users';
 const Routing = new Router();
 const API = [users];
