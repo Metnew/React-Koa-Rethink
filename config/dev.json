@@ -1,6 +1,6 @@
 {
     "server": {
-        "port": 8008
+        "port": 8080
     },
 
     "rethinkdb": {
@@ -12,9 +12,13 @@
         "tables":["users"]
     },
 
-    "public": {
-        "static": "localhost:8000",
-        "api": "/public"
+    "mongodb": {
+        "connect": {
+            "host": "localhost",
+            "port": 28015,
+            "db": "sherlock"
+        },
+        "collections": []
     },
 
     "jwt": {

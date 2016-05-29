@@ -1,3 +1,3 @@
-import Schema from './MyGraphQLSchema';
+import Schema from './schema';
 
 export {Schema}

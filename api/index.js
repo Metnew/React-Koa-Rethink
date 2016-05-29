@@ -1,8 +1,8 @@
 import Router from 'koa-router';
 import convert from 'koa-convert';
-import users from './users';
+import Users from './Users';
 const Routing = new Router();
-const API = [users];
+const API = [Users];
 
 for (let part of API) {
     for(let method in part) {

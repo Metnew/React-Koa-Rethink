@@ -6,13 +6,14 @@ import serve from 'koa-static2';
 import convert from 'koa-convert';
 import compress from 'koa-compress';
 import validate from 'koa-validate';
+import path from 'path';
 
 var App = new Koa();
 App.use(convert(helmet()))
 App.use(convert(body()))
 App.use(convert(morgan('dev')))
 App.use(convert(validate()))
-App.use(serve("static", "http://localhost:8000/"))
+App.use(serve("static", path.join(__dirname ,"../client/dist")))
 
 let compressFunc = compress({
     filter: function(content_type) {

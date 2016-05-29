@@ -37,21 +37,19 @@ if (cluster.isMaster && process.env.NODE_ENV === 'production') {
         if (process.env.NODE_ENV === 'production') {
             console.log('START WORKING IN PROD ENV'.bgRed)
             config = require('./config/prod.json');
-        } else {
+        } else if (process.env.NODE_ENV === 'dev') {
             console.log('START WORKING IN DEV ENV'.bgGreen)
             config = require('./config/dev.json');
         }
 
         // Add JWT
-        App.use(convert(jwt(config.jwt).unless( {path: [/^\/public/]} )));
+        App.use(convert(jwt(config.jwt).unless({path: [/^\/public/, '/']})));
         // Middelwares for App
         // App.use(Middelware);
         // Add GraphQL
         let graphqlServer = convert(graphqlHTTP({schema: Schema, graphiql: true, pretty: true}));
         App.use(convert(mount('/graphql', graphqlServer)));
-        console.log('GraphQL added.')
-        // use routing
-        App.use(Routes);
+        console.log('GraphQL added.'.cyan)
 
         // create conn to db
         let connection = await Rethink_DB(config);
@@ -60,17 +58,19 @@ if (cluster.isMaster && process.env.NODE_ENV === 'production') {
         let server = require('http').createServer(App.callback());
         let SocketConnection = io(server);
         SocketLogic.init(SocketConnection);
-        console.log('SocketLogic inited.')
+        console.log('SocketLogic inited.'.red)
+
+        // Add API Routes
+        App.use(Routes);
 
         // Add DB&WS TO CTX
         App.use(async(ctx, next) => {
             ctx.db = connection;
-            // ctx.io = io;
             await next();
         })
 
         // Boot server
         server.listen(config.server.port);
-        console.log(`SERVER STARTED AT ${config.server.port}`.bgCyan)
+        console.log(`APP SERVER STARTED AT ${config.server.port}`.bgCyan)
     })()
 }
