@@ -65,3 +65,6 @@ ES: **stage-3** (await, async)<br>
 Frontend: **Webpack + React + Redux + Socket.io**<br>
 Backend: **Rethinkdb + Koa(+ plugins) + GraphQL + Socket.io + JWT**;<br>
 View package.json for more info.
+
+## License
+MIT
