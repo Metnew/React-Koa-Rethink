@@ -49,13 +49,15 @@ Run frontend only:
 ```
 
 ### Essential tasks:
+<b>Contributions are always welcome. Please, send your pull request.</b>
 
 1. Add [Relay](https://facebook.github.io/relay/)
-2. Provide good big(!) example of [**GraphQL**](http://graphql.org/docs/getting-started/)
-3. Implement all requests connected to DB data with [**Socket.IO**](http://socket.io/)
-4. Implement all requests not connected to DB data in simple **XHR**
-5. Add Rethinkdb's sharding example
-6. Add Redis
+2. Add Tests.
+3. Provide good big(!) example of [**GraphQL**](http://graphql.org/docs/getting-started/)
+4. Implement all requests connected to DB data with [**Socket.IO**](http://socket.io/)
+5. Implement all requests not connected to DB data in simple **XHR**
+6. Add Rethinkdb's sharding example
+7. Add Redis
 
 ## Summary:
 
