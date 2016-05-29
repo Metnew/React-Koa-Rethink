@@ -13,7 +13,7 @@ App.use(convert(helmet()))
 App.use(convert(body()))
 App.use(convert(morgan('dev')))
 App.use(convert(validate()))
-App.use(serve("static", path.join(__dirname ,"../client/dist")))
+App.use(serve("static", path.resolve(__dirname , "../client/dist")))
 
 let compressFunc = compress({
     filter: function(content_type) {

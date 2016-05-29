@@ -12,15 +12,6 @@
         "tables":["users"]
     },
 
-    "mongodb": {
-        "connect": {
-            "host": "localhost",
-            "port": 28015,
-            "db": "sherlock"
-        },
-        "collections": []
-    },
-
     "jwt": {
         "secret": "rozovieponi"
     }
