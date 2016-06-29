@@ -3,7 +3,7 @@ require('./../styles/App.scss');
 
 import React from 'react';
 import AppBar from 'material-ui/lib/app-bar';
-import AppLeftNav from './partials/AppLeftNav'
+import AppLeftNav from './AppLeftNav'
 
 // import IconButton from 'material-ui/lib/icon-button';
 import {Spacing} from 'material-ui/lib/styles';
@@ -11,7 +11,7 @@ import {StyleResizable} from 'material-ui/lib/mixins';
 
 import {Colors} from 'material-ui/lib/styles';
 import ThemeManager from 'material-ui/lib/styles/theme-manager';
-import MyColorTheme from './assets/MyColorTheme';
+import MyColorTheme from './../assets/MyColorTheme';
 
 const App = React.createClass({
 
@@ -117,14 +117,7 @@ const App = React.createClass({
 
         const {location, children} = this.props;
         const router = this.context.router;
-        const title =
-      router.isActive('/new/group') ? 'New Group' :
-      router.isActive('/new/user') ? 'New User' :
-      router.isActive('/saved/users') ? 'Saved Users' :
-      router.isActive('/saved/users/:id') ? 'Saved User' :
-      router.isActive('/saved/groups') ? 'Saved Group' :
-      router.isActive('/saved/groups/:id') ? 'Saved Group' :
-      router.isActive('/settings') ? 'Settings' : 'Dashboard';
+        const title = router.isActive('/settings') ? 'Settings' : 'Dashboard';
 
         const styles = this.getStyles();
 

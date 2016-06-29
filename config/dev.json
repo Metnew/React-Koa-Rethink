@@ -1,13 +1,17 @@
 {
     "server": {
-        "port": 8080
+        "port": 8000
+    },
+
+    "API": {
+        "prefix": "/api/v1"
     },
 
     "rethinkdb": {
         "connect": {
             "host": "localhost",
             "port": 28015,
-            "db": "sherlock"
+            "db": "koa-react-starter"
         },
         "tables":["users"]
     },

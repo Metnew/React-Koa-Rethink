@@ -62,8 +62,6 @@ const AppLeftNav = React.createClass({
                     requestChange: onRequestChangeList
                 }}>
                     <ListItem value="/">Dashboard</ListItem>
-                <ListItem value="/stream">Stream</ListItem>
-                    <ListItem value="/settings">Settings</ListItem>
                 </SelectableList>
                 <Divider/>
 

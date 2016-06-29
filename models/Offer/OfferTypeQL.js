@@ -11,29 +11,23 @@ import {
 import User from './UserSchema.js';
 
 export default new GraphQLObjectType({
-    name: 'User',
-    description: 'A user',
+    name: 'Offer',
+    description: 'An Offer',
     fields: () => ({
         _id: {
             type: new GraphQLNonNull(GraphQLID)
         },
-        name: {
-            type: GraphQLString
-        },
         description: {
             type: GraphQLString
         },
-        // products: {
-        //
-        // },
-        // contacts: {
-        //
-        // },
+        type: {
+            type: GraphQLInt
+        },
         photo: {
             type: GraphQLString
+        },
+        owner_id: {
+            type: new GraphQLNonNull(GraphQLID)
         }
-        // friends:{
-        //   type: new GraphQLList()
-        // }
     })
 });

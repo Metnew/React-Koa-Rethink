@@ -1,6 +1,16 @@
 import compose from 'koa-compose';
-async function auth(res, ctx) {
-    console.log(res, ctx)
-}
+import _ from 'lodash';
 
-export default {auth}
+
+export default function Middelware (config) {
+    
+    function UrlMustMatchApiPrefix(ctx, next) {
+        if(_.startsWith(ctx.request.url, config.API.prefix)){
+            next()
+        } else {
+            ctx.throw('Invalid request', 400)
+        }
+    }
+
+    return compose([UrlMustMatchApiPrefix])
+}

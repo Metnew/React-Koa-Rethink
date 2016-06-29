@@ -4,8 +4,8 @@ import colors from 'colors';
 export default class Users {
 
     static async getAll(conn) {
-        let users = await r.table('users').getAll().run(conn);
-        return users;
+        let items = await r.table('users').getAll().run(conn);
+        return items;
     }
 
     static async get(query, conn) {

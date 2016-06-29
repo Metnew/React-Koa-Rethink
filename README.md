@@ -31,21 +31,21 @@ So, the main idea of this project is developing of the application, that fully f
 ## Run locally:
 ```
 
-git clone https://github.com/Metnew/koa-graphql-rethinkdb-starter.git && cd koa-graphql-rethinkdb-starter && npm install
+    git clone https://github.com/Metnew/koa-graphql-rethinkdb-starter.git && cd koa-graphql-rethinkdb-starter && npm install
 ```
 
 Run fullstack:
 
 ```
 
-        npm start
+    npm start
 ```
 
 Run frontend only:
 
 ```
 
-        npm run serve
+    npm run serve
 ```
 
 ### Essential tasks:

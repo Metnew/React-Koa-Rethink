@@ -14,7 +14,10 @@ module.exports = {
     },
     devServer: {
         contentBase: path.resolve(__dirname, '../client/src'),
-        // historyApiFallback: true,
+        historyApiFallback: true,
+        proxy: {
+            "/api/v1": "localhost:8000"
+        },
         compress: true,
         hot: true,
         port: defaultSettings.port,

@@ -25,14 +25,14 @@ let config = Object.assign({}, baseConfig, {
   ],
   module: defaultSettings.getDefaultModules()
 });
-console.log()
+
 // Add needed loaders to the defaults here
 config.module.loaders.push({
   test: /\.(js|jsx)$/,
   loader: 'react-hot!babel-loader',
   include: [].concat(
     config.additionalPaths,
-    path.resolve(__dirname, './../client/src') 
+    path.resolve(__dirname, './../client/src')
   )
 });
 
