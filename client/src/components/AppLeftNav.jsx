@@ -1,5 +1,4 @@
 import React from 'react';
-
 import LeftNav from 'material-ui/lib/left-nav';
 import Divider from 'material-ui/lib/divider';
 import List from 'material-ui/lib/lists/list';

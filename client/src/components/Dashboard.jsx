@@ -1,7 +1,8 @@
 import React from 'react';
-import DrugsList from './DrugsList';
-
+import Relay from 'react-relay';
+import OfferList from './OfferList';
 const Dashboard = React.createClass({
+
     getInitialState() {
         return {
             // chart: {
@@ -21,14 +22,20 @@ const Dashboard = React.createClass({
     },
 
     render() {
+        let offers = this.state.offers;
         // const {prepareStyles} = this.context.muiTheme;
         // const ChartStyles = this.getStyles().chart;
+        return (<OfferList></OfferList>)
+    }
+})
 
 
-        return (
-            
-        )
+export default Relay.createContainer(Dashboard, {
+    fragments: {
+        // offers: () => Relay.QL `{
+        //     fragment on Dashboard {
+        //
+        //     }
+        // }`
     }
 });
-
-export default Dashboard;

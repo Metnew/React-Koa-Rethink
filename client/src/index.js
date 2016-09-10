@@ -1,29 +1,26 @@
 import React from 'react';
+import Relay from 'react-relay';
 import ReactDOM from 'react-dom';
-
-import {Router, browserHistory} from 'react-router';
+import useRelay from 'react-router-relay'
+import {browserHistory, Router, applyRouterMiddleware} from 'react-router';
 import AppRoutes from './AppRouting';
-import injectTapEventPlugin from 'react-tap-event-plugin';
+// import injectTapEventPlugin from 'react-tap-event-plugin';
 
-injectTapEventPlugin();
+// injectTapEventPlugin();
 
-// class Root extends React.Component {
-//   render() {
-//     return (
-//       <Relay.RootContainer
-//         Component={ Application }
-//         route={ new ExampleRoute() } />
-//     );
-//   }
-// }
 // Render the main component into the dom
-const component =
-    <Router
-        history={browserHistory}>
-        {AppRoutes}
-    </Router>
+(<Router history={browserHistory}
+            render={applyRouterMiddleware(useRelay)}
+            environment={Relay.Store}>
+            {AppRoutes}
+        </Router>)
 
-ReactDOM.render(component, document.getElementById('app'));
+ReactDOM.render(<Router
+            history={browserHistory}
+            render={applyRouterMiddleware(useRelay)}
+            environment={Relay.Store}>
+            {AppRoutes}
+        </Router>, document.getElementById('app'));
 
 
 window.React = React;

@@ -13,17 +13,17 @@ import UserType from './UserTypeQL.js';
 import User from './UserSchema.js';
 
 export default {
-  users: {
+  offers: {
     type: new GraphQLList(UserType),
-    resolve: User.getAll
+    resolve: Offer.getAll
   },
-  user: {
-    type: UserType,
+  offer: {
+    type: OfferType,
     args: {
       id: {
         type: GraphQLID
       }
     },
-    resolve: User.get
+    resolve: Offer.get
   }
 };

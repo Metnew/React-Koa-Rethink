@@ -2,6 +2,7 @@ require('normalize.css');
 require('./../styles/App.scss');
 
 import React from 'react';
+import Relay from 'react-relay';
 import AppBar from 'material-ui/lib/app-bar';
 import AppLeftNav from './AppLeftNav'
 
@@ -116,8 +117,8 @@ const App = React.createClass({
         const {prepareStyles} = this.state.muiTheme;
 
         const {location, children} = this.props;
-        const router = this.context.router;
-        const title = router.isActive('/settings') ? 'Settings' : 'Dashboard';
+        // const router = this.context.router;
+        const title = 'Dashboard';
 
         const styles = this.getStyles();
 
@@ -162,4 +163,8 @@ const App = React.createClass({
     }
 })
 
-export default App;
+export default Relay.createContainer(App, {
+    fragments: {
+        
+    }
+});

@@ -6,9 +6,8 @@ import Dashboard from './components/Dashboard';
 
 const AppRoutes = (
     <Route name="app" path="/" component={App}>
-        <IndexRoute name="Dashboard" component={Dashboard}/>
+        <IndexRoute offers='null' name="Dashboard" component={Dashboard}/>
         <Route name="Dashboard" path="" component={Dashboard}/>
-        {/*<Route name="Settings" path="settings" component={Settings}/>*/}
     </Route>
 )
 
