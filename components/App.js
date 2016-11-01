@@ -9,10 +9,11 @@ import validate from 'koa-validate';
 import path from 'path';
 
 var App = new Koa();
+validate(App);
 App.use(convert(helmet()))
 App.use(convert(body()))
 App.use(convert(morgan('dev')))
-App.use(convert(validate()))
+// App.use((validate(App)))
 App.use(serve("static", path.resolve(__dirname , "../client/dist")))
 
 let compressFunc = compress({

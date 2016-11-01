@@ -8,20 +8,16 @@ import Offer from './Offer'
 //
 class OfferList extends React.Component {
     render() {
-        var offers = this.props.offers;
+        console.log('OfferList', this.props)
+        const {offers} = this.props;
         return (
-            (<div></div>)
-            // <div>{offers.map((offer) => <Offer offer={offer}></Offer>)}</div>
+            <div>{offers.map((offer) => <Offer offer={offer}></Offer>)}</div>
         )
     }
 }
 
 export default Relay.createContainer(OfferList, {
     fragments: {
-        // offers: () => Relay.QL `{
-        //     fragment on OfferList {
-        //
-        //     }
-        // }`
+
     }
 });

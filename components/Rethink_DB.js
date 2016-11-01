@@ -1,4 +1,4 @@
-import r from 'rethinkdb';
+import r from 'rethinkdbdash';
 import assert from 'assert';
 import colors from 'colors';
 import _ from 'lodash';

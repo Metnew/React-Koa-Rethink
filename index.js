@@ -1,12 +1,10 @@
 import {App, Rethink_DB, SocketLogic, Middelware} from './components';
-import {Schema} from './models';
-import Routes from './api';
+// import Routes from './api';
 
 import Koa from 'koa';
 import r from 'rethinkdbdash';
 import io from 'socket.io';
 import cluster from 'cluster'
-import graphqlHTTP from 'koa-graphql';
 import mount from 'koa-mount';
 import colors from 'colors';
 import jwt from 'koa-jwt';
@@ -49,15 +47,6 @@ if (cluster.isMaster && process.env.NODE_ENV === 'production') {
     App.use(convert(jwt(config.jwt).unless({
         path: [/^\/public/, '/']
     })));
-    // Add GraphQL
-    let graphqlServer = convert(graphqlHTTP((req, ctx) => ({
-        schema: Schema,
-        graphiql: true,
-        pretty: true,
-        context: ctx
-    })));
-    App.use(convert(mount('/graphql', graphqlServer)));
-    console.log('GraphQL added.'.cyan)
 
     // Add DB&WS TO CTX
     App.use(async(ctx, next) => {
@@ -76,7 +65,7 @@ if (cluster.isMaster && process.env.NODE_ENV === 'production') {
     console.log('SocketLogic inited.'.red)
 
     // Add API Routes
-    App.use(Routes());
+    // App.use(Routes());
 
     // Boot server
     server.listen(config.server.port);

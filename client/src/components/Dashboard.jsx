@@ -1,6 +1,7 @@
 import React from 'react';
 import Relay from 'react-relay';
 import OfferList from './OfferList';
+
 const Dashboard = React.createClass({
 
     getInitialState() {
@@ -11,31 +12,15 @@ const Dashboard = React.createClass({
             // }
         }
     },
-
-    getStyles() {
-        return {
-            // chart: {
-            //     width: (this.state.chart.width || '100%'),
-            //     height: (this.state.chart.height || 300)
-            // }
-        }
-    },
-
     render() {
-        let offers = this.state.offers;
+        console.log(this.props)
+        // const {offers} = this.props;
         // const {prepareStyles} = this.context.muiTheme;
         // const ChartStyles = this.getStyles().chart;
-        return (<OfferList></OfferList>)
+        return (
+            <div>
+                <OfferList offers={this.props.offers}></OfferList>
+            </div>
+        )
     }
 })
-
-
-export default Relay.createContainer(Dashboard, {
-    fragments: {
-        // offers: () => Relay.QL `{
-        //     fragment on Dashboard {
-        //
-        //     }
-        // }`
-    }
-});

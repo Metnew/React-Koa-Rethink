@@ -1,14 +1,13 @@
 import React from 'react';
 import {Route, IndexRoute} from 'react-router';
 
-import App from './components/App';
-import Dashboard from './components/Dashboard';
-
+import {App, Foo, Bar} from './containers';
+console.dir(App)
 const AppRoutes = (
-    <Route name="app" path="/" component={App}>
-        <IndexRoute offers='null' name="Dashboard" component={Dashboard}/>
-        <Route name="Dashboard" path="" component={Dashboard}/>
+    <Route name="App" path="/" component={App}>
+        <IndexRoute name="Foo" component={Foo}/>
+        <Route name="Foo" path="foo" component={Foo}/>
+        <Route name="Bar" path="bar" component={Bar}/>
     </Route>
 )
-
 export default AppRoutes;

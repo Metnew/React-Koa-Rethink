@@ -1,7 +1,7 @@
 {
   "parser": "babel-eslint",
   "plugins": [
-    "react"
+    "eslint-plugin-react"
   ],
   "ecmaFeatures": {
     "jsx": true,
