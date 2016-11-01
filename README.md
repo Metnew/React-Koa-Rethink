@@ -1,42 +1,20 @@
-# koa-rethinkdb-es7-starter
+# React-Koa-Rethink
 
-Example of a project implemented in Koa, Rethinkdb, React/Redux/Relay, es6(stage-3). Just read description below.
+Koa + React/Redux Project Starter with Rethinkdb support out of the box.
+I guarantee, it's the most f****ng awesomest starter(But not now, now it's not finished).
 
-## Project stage === in development
-
-## Why write it?:
-
-You can find many small pet projects, but you can't find a big, good-written, **modern**, flexible app with great structure implemented with patterns in mind.
-
-
-## Run locally:
+## Usage:
 ```
-
     git clone https://github.com/Metnew/koa-graphql-rethinkdb-starter.git
-    cd koa-graphql-rethinkdb-starter
+    cd React-Koa-Rethink
     npm install
-```
-
-Run fullstack:
-
-```
-
     npm start
 ```
 
-Run frontend only:
-
-```
-
-    npm run serve
-```
-
-
 ### Stack:
 
-Frontend: **React + Redux + Socket.io**<br>
-Backend: **Rethinkdb + Koa + Socket.io**;<br>
-View package.json for more info.
+Frontend: **React + Redux + (Socket.io)**<br>
+Backend: **Rethinkdb + Koa + (Socket.io)**;<br>
 
 ## License
 MIT
