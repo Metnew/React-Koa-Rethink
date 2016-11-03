@@ -1,47 +1,41 @@
 require('normalize.css');
 require('./../styles/App.scss');
-
 import React from 'react';
-// import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import {darkWhite} from 'material-ui/styles/colors'
-import {Spacing} from 'material-ui/styles/spacing';
+import Spacing from 'material-ui/styles/spacing';
 import AppLeftNav from '../components/AppLeftNav'
 import MyColorTheme from '../assets/MyColorTheme';
+import {AppBar} from 'material-ui'
 
 class App extends React.Component {
-    constructor() {
-        super();
-        this.propTypes = {
-            children: React.PropTypes.node,
-            location: React.PropTypes.object
+    constructor(props) {
+        super(props);
+        this.state = {
+            leftNavOpen: false
         }
-
-        this.contextTypes = {
-            router: React.PropTypes.object.isRequired
-        }
-
-        this.childContextTypes = {
-            muiTheme: React.PropTypes.object
-        }
-
     }
 
-    getInitialState() {
-        return {leftNavOpen: false, muiTheme: getMuiTheme(MyColorTheme)}
+    static propTypes = {
+        children: React.PropTypes.node,
+        location: React.PropTypes.object
     }
 
-    getChildContext() {
-        return {muiTheme: this.state.muiTheme}
+    static contextTypes = {
+        router: React.PropTypes.object.isRequired
+    }
+
+    static childContextTypes = {
+        muiTheme: React.PropTypes.object
     }
 
     componentWillMount() {
-        this.setState({muiTheme: this.state.muiTheme});
+        // this.setState();
     }
 
     componentWillReceiveProps() {
-        const newMuiTheme = this.state.muiTheme;
-        this.setState({muiTheme: newMuiTheme});
+        // const newMuiTheme = this.state.muiTheme;
+        // this.setState({muiTheme: newMuiTheme});
     }
 
     getStyles() {
@@ -49,8 +43,6 @@ class App extends React.Component {
         const styles = {
             appBar: {
                 position: 'fixed',
-                // Needed to overlap the examples
-                zIndex: this.state.muiTheme.zIndex.appBar + 1,
                 top: 0
             },
             root: {
@@ -100,7 +92,6 @@ class App extends React.Component {
 
     render() {
         let {leftNavOpen} = this.state;
-        const {prepareStyles} = this.state.muiTheme;
 
         const {location, children} = this.props;
         // const router = this.context.router;
@@ -124,17 +115,19 @@ class App extends React.Component {
         // }
 
         return (
+            <MuiThemeProvider>
             <div className="page-layout">
                 <AppBar zDepth={0} title={title} iconClassNameRight="muidocs-icon-navigation-expand-more" onLeftIconButtonTouchTap={this.handleTouchTapLeftIconButton} showMenuIconButton={showMenuIconButton} style={styles.appBar}/>
-                <div style={prepareStyles(styles.root)}>
-                    <div style={prepareStyles(styles.content)}>
+                <div>
+                    <div>
                         {React.cloneElement(children)}
                     </div>
                 </div>
                 <AppLeftNav open={leftNavOpen} style={styles.leftNav} location={location} docked={docked} onRequestChangeLeftNav={this.handleChangeRequestLeftNav} onRequestChangeList={this.handleRequestChangeList}/>
             </div>
+            </MuiThemeProvider>
         );
     }
 }
 
-export default App;
+export default App

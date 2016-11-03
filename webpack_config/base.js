@@ -2,6 +2,7 @@
 let path = require('path');
 let defaultSettings = require('./defaults');
 let additionalPaths = [];
+console.log(path.join(__dirname, './../client/dist/assets'))
 module.exports = {
     additionalPaths: additionalPaths,
     port: defaultSettings.port,

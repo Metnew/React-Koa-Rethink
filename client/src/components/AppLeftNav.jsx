@@ -1,25 +1,27 @@
 import React from 'react';
-import {LeftNav, Divider} from 'material-ui';
+import {Drawer, Divider} from 'material-ui';
 import {makeSelectable, List, ListItem} from 'material-ui/List'
 import {zIndex} from 'material-ui/styles/zIndex'
 
+console.log(Drawer)
 let SelectableList = makeSelectable(List);
 class AppLeftNav extends React.Component {
-    constructor() {
-        super();
-        this.propTypes = {
-            docked: React.PropTypes.bool.isRequired,
-            location: React.PropTypes.object.isRequired,
-            onRequestChangeLeftNav: React.PropTypes.func.isRequired,
-            onRequestChangeList: React.PropTypes.func.isRequired,
-            open: React.PropTypes.bool.isRequired,
-            style: React.PropTypes.object
-        }
+    constructor(props) {
+        super(props);
+    }
 
-        this.contextTypes = {
-            muiTheme: React.PropTypes.object.isRequired,
-            router: React.PropTypes.object.isRequired
-        }
+    static propTypes = {
+        docked: React.PropTypes.bool.isRequired,
+        location: React.PropTypes.object.isRequired,
+        onRequestChangeLeftNav: React.PropTypes.func.isRequired,
+        onRequestChangeList: React.PropTypes.func.isRequired,
+        open: React.PropTypes.bool.isRequired,
+        style: React.PropTypes.object
+    }
+
+    static contextTypes = {
+        muiTheme: React.PropTypes.object.isRequired,
+        router: React.PropTypes.object.isRequired
     }
 
     handleRequestChangeLink(event, value) {
@@ -48,9 +50,7 @@ class AppLeftNav extends React.Component {
         const styles = this.getStyles();
 
         return (
-            <LeftNav style={style} docked={docked} open={open} onRequestChange={onRequestChangeLeftNav} containerStyle={{
-                zIndex: zIndex.leftNav - 100
-            }}>
+            <Drawer style={style} docked={docked} open={open} onRequestChange={onRequestChangeLeftNav}>
                 <div style={prepareStyles(styles.logo)}>
                     <img src=""/>
                 </div>
@@ -62,7 +62,7 @@ class AppLeftNav extends React.Component {
                 </SelectableList>
                 <Divider/>
 
-            </LeftNav>
+            </Drawer>
         )
     }
 }

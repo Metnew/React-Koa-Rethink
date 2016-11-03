@@ -2,7 +2,6 @@ import React from 'react';
 import {Route, IndexRoute} from 'react-router';
 
 import {App, Foo, Bar} from './containers';
-console.dir(App)
 const AppRoutes = (
     <Route name="App" path="/" component={App}>
         <IndexRoute name="Foo" component={Foo}/>

@@ -1,5 +1,4 @@
 import React from 'react';
-import Relay from 'react-relay';
 import OfferList from './OfferList';
 
 const Dashboard = React.createClass({
