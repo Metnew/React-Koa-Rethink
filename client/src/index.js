@@ -1,12 +1,9 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import {browserHistory, Router} from 'react-router';
-import AppRoutes from './AppRouting';
-console.log(AppRoutes)
-ReactDOM.render(<Router
-            history={browserHistory}>
-            {AppRoutes}
-        </Router>, document.getElementById('app'));
+import 'normalize.css';
+import 'semantic-ui-css/semantic.css';
+require('./styles/App.scss');
+import {render} from 'react-dom';
+import Root from './Root';
 
-
-window.React = React;
+// here should be other plugins
+render(<Root/>, document.getElementById('app'));
