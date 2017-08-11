@@ -1,5 +1,7 @@
 # React-Koa-Rethink
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/Metnew/React-Koa-Rethink.svg)](https://greenkeeper.io/)
+
 Koa + React/Redux Project Starter with Rethinkdb support out of the box.
 I guarantee, it's the most f****ng awesomest starter(But not now, now it's not finished).
 
